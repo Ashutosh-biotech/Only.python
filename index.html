@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/boxicons.min.css">
+    <link rel="stylesheet" href="css/w3.css">
+    <style>
+        nav i,
+        .w3-main button i {
+            font-size: 50px;
+            margin: 10px 5px;
+            transition-duration: 1s;
+            vertical-align: middle;
+        }
+
+        nav center {
+            position: relative;
+        }
+
+        header h1 {
+            margin-top: 0%;
+        }
+
+        .text-dark-blue {
+            color: blue !important;
+        }
+
+        .hover-dark-blue:hover {
+            background-color: blue;
+            color: white;
+        }
+
+        hr {
+            margin: 0px !important;
+        }
+
+        nav a p {
+            position: relative;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .w3-sidebar {
+            z-index: 55 !important;
+            overflow: auto;
+        }
+
+        button {
+            outline-style: none;
+            transition: 1s;
+        }
+
+        .w3-main center header {
+            position: relative;
+        }
+
+        .w3-main center header button {
+            font-size: 30px;
+            cursor: pointer;
+        }
+
+        @media (min-width: 993px) {
+            .bx-menu {
+                display: block;
+            }
+        }
+
+        .bx-menu {
+            display: none;
+        }
+    </style>
+    <title>HTML5 & CSS3 & JAVASCRIPT</title>
+</head>
+
+<body>
+    <nav class="w3-sidebar w3-bar-block w3-collapse w3-animate-left w3-card w3-blue" style="z-index:333;width:250px;"
+        id="mySidebar">
+        <button class="w3-bar-item w3-btn w3-red w3-center w3-hide-large w3-large" onclick="w3_close()"><i
+            class="fa fa-remove"></i></button>
+        <center>
+            <i class="bx bxl-html5 w3-text-red w3-animate-zoom w3-btn w3-hover-red w3-round-large"></i>
+            <i class="bxl-css3 bx w3-text-purple w3-animate-zoom w3-btn w3-hover-purple w3-round-large"></i><br>
+            <i class="bx bxl-javascript w3-text-yellow w3-animate-zoom w3-btn w3-hover-yellow w3-round-large"></i>
+        </center>
+        <hr>
+        <h3 class="w3-center">MENU</h3>
+        <hr>
+
+        <a href="html/AI_keeps.html" target="_blank" rel="noopener noreferrer">
+            <p class="w3-btn w3-round-large w3-hover-deep-orange">→ AI keeps</p>
+        </a><br>
+        <a href="html/AI_Form.html" target="_blank" rel="noopener noreferrer">
+            <p class="w3-btn w3-round-large w3-hover-deep-orange">→ AI Sign In Form</p>
+        </a><br>
+        <a href="html/SignUp.html" target="_blank" rel="noopener noreferrer">
+            <p class="w3-btn w3-round-large w3-hover-deep-orange">→ AI Sign Up Form</p>
+        </a><br>
+        <a href="html/WhiteBoard.html" target="_blank" rel="noopener noreferrer"
+            onclick="if(!(navigator.onLine)){alert('No Internet')}">
+            <p class="w3-btn w3-round-large w3-hover-deep-orange">→ AI Board</p>
+        </a><br>
+        <a href="html/flip_intro.html" target="_blank" rel="noopener noreferrer">
+            <p class="w3-btn w3-round-large w3-hover-deep-orange">→ AI flip</p>
+        </a><br>
+        <a href="html/AI_clock.html" target="_blank" rel="noopener noreferrer">
+            <p class="w3-btn w3-round-large w3-hover-deep-orange">→ AI clock</p>
+        </a><br>
+        <a href="html/Hex color picker.html" target="_blank" rel="noopener noreferrer">
+            <p class="w3-btn w3-round-large w3-hover-deep-orange">→ AI Color picker</p>
+        </a><br>
+        <a href="html/ColorGradient picker.html" target="_blank" rel="noopener noreferrer">
+            <p class="w3-btn w3-round-large w3-hover-deep-orange">→ AI Color Gradient picker</p>
+        </a><br>
+        <a href="html/location.html" target="_blank" rel="noopener noreferrer">
+            <p class="w3-btn w3-round-large w3-hover-deep-orange">→ My location</p>
+        </a><br>
+    </nav>
+
+    <div class="w3-main w3-purple" style="margin-left:250px;">
+
+        <center>
+            <header class="w3-teal" style="padding-bottom: 64px;">
+                <i class="fa fa-bars w3-button w3-teal w3-right w3-hide-large w3-xlarge" onclick="w3_open()"></i>
+                <br><br><br>
+                <h1 class="w3-animate-top">Learn HTML, CSS and JS</h1>
+                <h3 class="w3-animate-left w3-center"></h3>keep your level upgrade with AI</h3>
+            </header>
+        </center>
+
+        <button class="w3-btn w3-green w3-hover-text-green w3-round w3-margin system w3-hover-white">
+            <i class="bx bx-laptop w3-center"></i>
+            <span style="line-height: 50px;">Give me my system Info</span>
+        </button>
+
+        <button class="w3-btn w3-red w3-hover-text-red w3-round w3-margin IP w3-hover-white">
+            <i class="bx bx-globe w3-center"></i>
+            <span style="line-height: 50px;">Give me my IP address</span>
+        </button>
+
+        <div class="w3-container w3-red info">
+            <i class="bx bx-x info-x w3-btn  w3-right -large"></i><br>
+            <div class="_info">Click On the above buttons to get Amazing result</div>
+        </div>
+    </div>
+</body>
+<script src="js/jquery-3.5.1.min.js"></script>
+<script>
+
+    let _info = document.querySelector('._info');
+    let info = document.querySelector('.info');
+
+    document.querySelector('.system').addEventListener('click', () => {
+        let browser = [
+            navigator.vendor,
+            navigator.platform,
+            navigator.languages,
+            navigator.appVersion,
+            navigator.onLine
+        ];
+
+        _info.innerHTML = `<h3>Your System Info As Follow → </h3>
+        <h4 class="w3-purple w3-container w3-round-large">
+        Browser Vender Name → ${browser[0]}<br><hr>
+        Operating System you are using → ${browser[1]}<br><hr>
+        Languages you are using → ${browser[2]}<br><hr>
+        Your Operating system info → ${browser[3]}<br><hr>
+        You are OnLine → ${browser[4]}<hr><br>
+        <button class='w3-btn w3-round w3-hover-blue w3-green location' onclick='window.location.assign("html/location.html")'>Switch to map for my location</button><br><br>
+        </h4>`;
+        info.style.display = 'block';
+    });
+
+    document.querySelector('.IP').addEventListener('click', () => {
+        if (navigator.onLine) {
+            window.alert('This is very confidencial content please don\'t share with others')
+            function text(url) {
+                return fetch(url).then(res => res.text());
+            }
+
+            text('https://www.cloudflare.com/cdn-cgi/trace').then(data => {
+                let ipRegex = /[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}/
+                var ip = data.match(ipRegex)[0];
+                console.log(ip);
+                _info.innerHTML = `<h1 class="w3-large">&nbsp;IP Address → ${ip}<`;
+            });
+
+            document.querySelector('.info').style.display = 'block';
+        } else {
+            _info.innerHTML = `<h1 class="bx-flashing"><i class="bx bx-error w3-text-yellow">&nbsp;No internet connection</i>`;
+            info.style.display = 'block';
+        }
+    });
+
+    document.querySelector('.info-x').addEventListener('click', () => {
+        info.style.display = 'none';
+    });
+
+    // Open and close the sidebar on medium and small screens
+    function w3_open() {
+        document.getElementById("mySidebar").style.display = "block";
+    }
+
+    function w3_close() {
+        document.getElementById("mySidebar").style.display = "none";
+    }
+</script>
+
+</html>

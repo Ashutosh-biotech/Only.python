@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script>
+        setInterval(() => {
+            let hour = new Date().getHours();
+            let min = new Date().getMinutes();
+            let sec = new Date().getSeconds();
+
+            if(hour<12){document.querySelector('.am_pm').innerHTML="Am";}
+            else{document.querySelector('.am_pm').innerHTML="Pm";}
+            if(hour>12){hour = hour-12}
+                
+            if(hour<10){hour = '0'+hour;}
+            if(min<10){min = '0'+ min;}
+            if(sec<10){sec = '0'+sec}
+
+            document.querySelector('.hour').innerHTML=hour;
+            document.querySelector('.min').innerHTML=min;
+            document.querySelector('.sec').innerHTML=sec;
+        }, 1000);
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI clock</title>
+    <style>
+        * {
+            margin: 0%;
+            padding: 0%;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: rgba(12, 12, 12, 0.816);
+        }
+
+        .box {
+            display: inline-block;
+            width: 150px;
+            height: 150px;
+            border-radius: 20px;
+        }
+
+        .box:nth-child(1) {
+            position: absolute;
+            top: 17%;
+            left: 60%;
+            animation-delay: 1s;
+            background: linear-gradient(red, orange, yellow);
+        }
+
+        .box1 {
+            position: absolute;
+            left: 30%;
+            top: 60%;
+            background: linear-gradient(rgb(34, 0, 255), rgb(0, 102, 255), rgb(0, 217, 255));
+        }
+
+        .clock {
+            width: 400px;
+            height: 150px;
+            color: white;
+            background-color: rgba(255, 255, 255, 0.118);
+            font-size: 60px;
+            border-radius: 10px;
+            z-index: 555;
+            backdrop-filter: blur(10px);
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+        }
+
+        .box {
+            animation-name: bounce;
+            animation-duration: 2s;
+            animation-timing-function: ease-in-out;
+            animation-iteration-count: infinite;
+        }
+
+        @keyframes bounce {
+            0% {
+                transform: translateY(-20px);
+            }
+
+            50% {
+                transform: translateY(20px);
+            }
+
+            100% {
+                transform: translateY(-20px);
+            }
+        }
+        .clock span{
+            position: relative;
+            top: 25%;
+        }
+
+        .hour, .min, .sec{background-color: rgba(255, 255, 255, 0.193);
+        padding: 5px;border-radius: 20px;}
+
+        .am_pm{
+            position: relative;
+            font-size: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box"></div>
+    <div class="clock">
+        <span class="hour"></span>
+        <span> : </span>
+        <span class="min"></span>
+        <span> : </span>
+        <span class="sec" style="color: rgb(255, 217, 0);"></span>
+        <span class="am_pm"></span>
+    </div>
+    <div class="box box1"></div>
+</body>
+
+
+
+</html>

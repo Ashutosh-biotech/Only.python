@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/w3.css">
+    <title>Hex color gradient picker</title>
+    <style>
+        .box {
+            display: inline-flex;
+            width: 200px;
+            height: 200px;
+            margin: 5px 5px;
+            border-radius: 5px;
+            text-align: center;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container"></div>
+</body>
+<script>
+    function generateColor() {
+        let chars = '1234567890abcdef';
+        var color = "";
+
+        for (var i = 0; i < 100; i++) {
+
+            for (var j = 0; j < 6; j++) {
+                var random = Math.floor(Math.random() * chars.length)
+                var color = color + chars[random]
+            }
+
+            let color1 = color;
+            var color = "";
+            for (var j = 0; j < 6; j++) {
+                var random = Math.floor(Math.random() * chars.length)
+                var color = color + chars[random]
+            }
+
+            let color2 = color;
+            var color = "";
+            for (var j = 0; j < 6; j++) {
+                var random = Math.floor(Math.random() * chars.length)
+                var color = color + chars[random]
+            }
+
+            let color3 = color;
+            var color = "";
+            var container = document.querySelector('.container');
+            const box = document.createElement('div');
+            box.classList.add('box');
+            container.appendChild(box);
+            box.style.backgroundImage = `linear-gradient(#${color1}, #${color2}, #${color3})`;
+            box.innerHTML = `<span class=''>linear-gradient(#${color1}, #${color2}, #${color3})</span>`;
+            var color = "";
+        }
+    }
+
+    generateColor()
+
+</script>
+
+</html>

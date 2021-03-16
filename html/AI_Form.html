@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI form</title>
+    <style>
+        .bounce {
+            animation: bounce 2s linear infinite;
+        }
+
+        @keyframes bounce {
+            0% {
+                transform: translateY(-10px);
+            }
+
+            50% {
+                transform: translateY(10px);
+            }
+
+            100% {
+                transform: translateY(-10px);
+            }
+        }
+
+        * {
+            margin: 0%;
+            padding: 0%;
+            box-sizing: border-box;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            position: relative;
+        }
+
+        .pinkbox {
+            width: 60vw;
+            height: 50vh;
+            background-color: #d87093;
+            position: relative;
+            filter: blur(500px);
+        }
+
+        .yellowbox {
+            width: 70vw;
+            height: 60vh;
+            background-color: #9acd32;
+            position: absolute;
+            filter: blur(500px);
+            left: 30%;
+            top: 80%;
+        }
+
+        .form {
+            position: absolute;
+            width: 600px;
+            height: 333px;
+            /* background-color: rgba(255, 255, 255, 0.1); */
+            background-color: transparent;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%);
+            border-left: 1px solid white;
+            border-top: 1px solid white;
+            backdrop-filter: blur(100px);
+            z-index: 5;
+        }
+
+        .form div {
+            position: relative;
+            margin: 20px;
+        }
+
+        label {
+            color: white;
+            font-size: 40px;
+        }
+
+        hr {
+            border: 2px solid white;
+            width: 153px;
+        }
+
+        [type='text'] {
+            margin-top: 35px;
+            width: 90%;
+            height: 40px;
+            border-radius: 20px;
+            border-style: none;
+            outline-style: none;
+            text-indent: 15px;
+            font-size: 20px;
+            color: teal;
+            padding: 10px;
+        }
+
+        [type='password'] {
+            margin-top: 30px;
+            width: 90%;
+            height: 40px;
+            border-radius: 20px;
+            border-style: none;
+            outline-style: none;
+            text-indent: 15px;
+            font-size: 20px;
+            color: teal;
+            padding: 10px;
+        }
+
+        [type='button'] {
+            margin-top: 30px;
+            outline-style: none;
+            border-style: none;
+            font-size: 20px;
+            padding: 10px;
+            border-radius: 10px;
+            background-color: rgb(46, 168, 15);
+            color: white;
+            width: 20%;
+            cursor: pointer;
+            transition-duration: 1s;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        }
+
+        [type='button']:hover {
+            word-spacing: 2px;
+            background-color: white;
+            color: rgb(46, 168, 15);
+            box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        }
+
+        .clone1 {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background-color: rgba(255, 255, 255, 0.2);
+            top: 60px;
+            left: 60vw;
+            border-left: 1px solid white;
+            border-top: 1px solid white;
+        }
+
+        .clone2 {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            background-color: rgba(255, 255, 255, 0.2);
+            top: 300px;
+            left: 25vw;
+            border-left: 1px solid white;
+            border-top: 1px solid white;
+        }
+
+        .clone3 {
+            position: absolute;
+            width: 70px;
+            height: 70px;
+            background-color: rgba(255, 255, 255, 0.2);
+            top: 470px;
+            left: 71vw;
+            border-left: 1px solid white;
+            border-top: 1px solid white;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="pinkbox"></div>
+    <div class="yellowbox"></div>
+    <div class="form">
+        <div>
+            <label for="form">Login Form</label><br><br>
+            <hr>
+            <input type="text" class="input_text" placeholder="Name"><br>
+            <input type="password" class="input_password" placeholder="Password"><br>
+            <input type="button" value="Submit" onclick="alert('This is a form demo')">
+        </div>
+    </div>
+    <div class="clone1 bounce"></div>
+    <div class="clone3 bounce" style="animation-delay: 0.5s;"></div>
+    <div class="clone2 bounce" style="animation-delay: 1s;"></div>
+</body>
+
+</html>

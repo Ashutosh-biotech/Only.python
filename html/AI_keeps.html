@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI KEEP</title>
+    <link rel="stylesheet" href="../css/w3.css">
+    <link rel="stylesheet" href="../css/boxicons.min.css">
+    <style>
+        header {
+            background-color: yellowgreen;
+        }
+
+        body {
+            background-color: rgb(0, 0, 0);
+        }
+
+        h1 {
+            margin-left: 30px;
+            margin-top: 0px;
+            margin-bottom: 0px;
+        }
+
+        i {
+            cursor: pointer;
+        }
+
+        .note {
+            height: 250px;
+            width: 250px;
+            background-color: white;
+            margin: 70px 10px 0px 10px;
+            position: relative;
+            display: inline-block;
+            overflow: hidden;
+        }
+
+        .textButton {
+            margin: 5px;
+            z-index: 2;
+            outline-style: none;
+        }
+
+        .addNote {
+            outline-style: none;
+            background-color: gold;
+            width: 30%;
+            transition-duration: 2s;
+        }
+
+        .addNote:hover {
+            width: 100%;
+        }
+
+        textarea {
+            height: 200px;
+            width: 250px;
+            position: absolute;
+            margin-top: 50px;
+            overflow: scroll;
+            outline-style: none;
+            border-style: none;
+        }
+
+        .main {
+            height: 200px;
+            width: 250px;
+            position: absolute;
+            margin-top: 50px;
+            overflow: scroll;
+            outline-style: none;
+            border-style: none;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="" style="cursor:pointer">
+        <h1><i class="bx bx-note bx-tada-hover"></i>&nbsp;AI KEEP</h1>
+    </header>
+    <div class="w3-right w3-animate-zoom" style="position: relative;">
+        <button class="w3-btn addNote w3-margin w3-round-xxlarge">
+            <i class="bx bx-plus w3-circle" style="align-items: middle;"></i>&nbsp;&nbsp;&nbsp;&nbsp;Add Note
+        </button>
+    </div>
+</body>
+
+<script>
+    const addButton = document.querySelector(".addNote");
+
+    const updateLSData = () => {
+        const textAreaData = document.querySelectorAll('textarea');
+        const notes = [];
+
+        textAreaData.forEach((note) => {
+            return notes.push(note.value)
+        });
+        localStorage.setItem('notes', JSON.stringify(notes));
+    }
+
+    const addNewNote = (text = '') => {
+        const note = document.createElement('div')
+        note.classList.add('note');
+        const htmlData = `
+        <div class="operation">
+            <div class="w3-right w3-margin-right">
+                <button
+                    class="edit w3-btn w3-green w3-hover-white w3-hover-text-green w3-large w3-circle w3-padding-small w3-tooltip textButton" title="edit/save">
+			<i class="bx bx-edit"></i></button>
+                <button
+                    class="delete w3-btn w3-red w3-hover-white w3-hover-text-red w3-large w3-circle w3-padding-small w3-tooltip textButton" title="Delete">
+			<i class="bx bx-trash"></i></button>
+            </div>
+            <div class="main ${text ? "" : "w3-hide"}"></div>
+            <textarea class="${text ? "w3-hide" : ""}"></textarea>
+        </div>`;
+
+        note.insertAdjacentHTML('afterbegin', htmlData);
+
+        const editButton = note.querySelector('.edit');
+        const deleteButton = note.querySelector('.delete');
+        const main = note.querySelector('.main');
+        const textarea = note.querySelector('textarea');
+
+        deleteButton.addEventListener('click', () => {
+            note.remove()
+            updateLSData();
+        });
+
+        editButton.addEventListener('click', () => {
+            main.classList.toggle('w3-hide');
+            textarea.classList.toggle('w3-hide');
+        });
+
+        textarea.value = text;
+        main.innerHTML = text;
+
+        textarea.addEventListener('change', (event) => {
+            const value = event.target.value;
+            main.innerHTML = value;
+
+            updateLSData();
+        });
+
+        document.body.appendChild(note);
+    }
+
+    const notes = JSON.parse(localStorage.getItem('notes'));
+
+    if (notes) {
+        notes.forEach((notes) => addNewNote(notes))
+    };
+
+    addButton.addEventListener('click', () => addNewNote());
+</script>
+
+</html>

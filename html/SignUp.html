@@ -1,0 +1,419 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <base href="signup">
+    <link rel="stylesheet" href="../css/boxicons.min.css">
+    <title>SIGN UP FORM</title>
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            min-height: 70px;
+            position: relative;
+        }
+
+        .img {
+            border-radius: 20px;
+        }
+
+        img.img:nth-child(1) {
+            background-color: rgb(58, 226, 58);
+        }
+
+        .card {
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background-color: rgba(255, 255, 255, 0.152);
+            color: rgb(0, 174, 255);
+            top: 80%;
+            border-radius: 20px;
+            transform-style: preserve-3d;
+            transform: perspective(1000px);
+            transition: 1s;
+            box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            z-index: 555;
+        }
+
+        .card .details {
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            width: 100%;
+            height: 100%;
+            padding: 20px;
+            justify-content: center;
+            align-items: center;
+            backdrop-filter: blur(3.5px);
+        }
+
+        .card .details .content {
+            position: absolute;
+            top: 20%;
+            width: 90%;
+        }
+
+        .card .imgbox {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            transform-origin: left;
+            transition: 2s;
+            transform-style: preserve-3d;
+        }
+
+        .card .imgbox .img {
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            width: 100%;
+            height: 100%;
+            transform-style: preserve-3d;
+            box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            backface-visibility: hidden;
+            backdrop-filter: blur(3.5px);
+        }
+
+        .card .imgbox .img:nth-child(2) {
+            transform: rotateY(180deg);
+        }
+
+        .card:hover .imgbox {
+            transform: rotateY(-180deg);
+        }
+
+        .card:hover {
+            transform: translateX(50%);
+        }
+
+        .img div {
+            margin: 20% 30px;
+        }
+
+        [type='text'],
+        [type='password'],
+        [type='email'] {
+            margin-top: 30px;
+            width: 90%;
+            height: 40px;
+            border-radius: 20px;
+            border: 2px solid black;
+            outline-style: none;
+            text-indent: 15px;
+            font-size: 20px;
+            color: teal;
+            padding: 10px;
+        }
+
+        [type='button'] {
+            margin-top: 30px;
+            outline-style: none;
+            border-style: none;
+            font-size: 20px;
+            padding: 10px;
+            border-radius: 10px;
+            background-color: rgb(46, 168, 15);
+            color: white;
+            cursor: pointer;
+            transition-duration: 1s;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        }
+
+        [type='button']:hover,
+        .btn:hover {
+            background-color: white;
+            letter-spacing: 10px;
+            color: rgb(46, 168, 15);
+            box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        }
+
+        hr {
+            size: 100%;
+            margin-top: 30px;
+            height: 5px;
+            border-radius: 20px;
+            background-color: royalblue;
+        }
+
+        .btn {
+            appearance: auto;
+            text-align: center;
+            border-width: 2px;
+            border-color: -internal-light-dark(rgb(118, 118, 118), rgb(133, 133, 133));
+            border-image: initial;
+            text-rendering: auto;
+            letter-spacing: normal;
+            word-spacing: normal;
+            text-transform: none;
+            text-indent: 0px;
+            text-shadow: none;
+            -webkit-rtl-ordering: logical;
+            margin-top: 40px;
+            outline-style: none;
+            border-style: none;
+            font-size: 20px;
+            padding: 10px;
+            border-radius: 10px;
+            background-color: rgb(46, 168, 15);
+            color: white;
+            cursor: pointer;
+            transition-duration: 1s;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        }
+
+        .box {
+            border-radius: 20px;
+        }
+
+        #box1 {
+            height: 100px;
+            width: 100px;
+            background-color: blueviolet;
+            top: 8vh;
+            position: absolute;
+            left: 20vw;
+        }
+
+        #box2 {
+            height: 40px;
+            width: 40px;
+            background-color: rgb(43, 95, 226);
+            top: 50vh;
+            position: absolute;
+            left: 30vw;
+            animation-delay: 1.5s;
+        }
+
+        #box4 {
+            height: 60px;
+            width: 60px;
+            background-color: rgb(43, 226, 104);
+            top: 70vh;
+            position: absolute;
+            left: 80vw;
+            border-radius: 100px;
+            animation-delay: 3s;
+        }
+
+        #box3 {
+            height: 80px;
+            width: 80px;
+            background-color: rgb(226, 147, 43);
+            top: 15vh;
+            position: absolute;
+            left: 85vw;
+        }
+
+        #box5 {
+            height: 60px;
+            width: 60px;
+            background-color: rgb(226, 43, 113);
+            top: 50vh;
+            position: absolute;
+            left: 10vw;
+            animation-delay: 2s;
+        }
+
+        #box6 {
+            height: 10px;
+            width: 100px;
+            background-color: rgb(43, 95, 226);
+            top: 80vh;
+            position: absolute;
+            left: 25vw;
+        }
+
+        .bounce {
+            animation: bounce 4s linear infinite;
+        }
+
+        @keyframes bounce {
+            0% {
+                transform: translateY(-20px);
+            }
+
+            50% {
+                transform: translateY(20px);
+            }
+
+            100% {
+                transform: translateY(-20px);
+            }
+        }
+
+        .line {
+            animation: box_line 4s linear infinite;
+        }
+
+        @keyframes box_line {
+            0% {
+                transform: translateX(35vw);
+            }
+
+            50% {
+                transform: translateX(-5vw);
+            }
+
+            100% {
+                transform: translateX(35vw);
+            }
+        }
+
+        .spin {
+            animation: spin 4s linear infinite;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            70% {
+                transform: rotate(180deg);
+            }
+
+            100% {
+                transform: rotate(0deg);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box bounce" id="box1"></div>
+    <div class="box bounce" id="box2"></div>
+    <div class="box spin" id="box3"></div>
+    <div class="box bounce" id="box4"></div>
+    <div class="box spin" id="box5"></div>
+    <div class="box line" id="box6"></div>
+    <div class="card">
+        <div class="imgbox">
+            <div class="img" style="background-color: rgb(19, 10, 186)">
+                <center>
+                    <h1 style="position: absolute;top: 50%;left: 50%;transform: translate(-50%, -50%);">
+                        Come here
+                        <br>to<br>
+                        <i class="bx bx-log-in"></i>
+                        Sign Up
+                    </h1>
+                </center>
+            </div>
+            <div class="img">
+                <div>
+                    <h3>FORM</h3><br>
+                    <hr>
+                    <input type="text" id="text" placeholder="Enter your name" required><br>
+                    <input type="email" id="email" placeholder="Enter your email-id" required><br>
+                    <hr>
+                    <span id="alert" style="text-transform: lowercase;"></span>
+                </div>
+            </div>
+        </div>
+        <div class="details">
+            <div class="content">
+                <h3>Password</h3><br>
+                <hr>
+                <input type="password" id="pw" placeholder="Enter Password" required oncopy="return false;"
+                    onpaste="return false;">
+                <input type="password" id="re" placeholder="Re enter Password" required oncopy="return false;"
+                    onpaste="return false;">
+                <hr>
+                <span class="btn">Verify</span>
+                <input type="button" value="Submit" id="btn" style="display: none;"
+                    onclick="window.alert('This is a form demo')">
+            </div>
+        </div>
+    </div>
+</body>
+
+<script>
+
+    let alert = document.querySelector("#alert")
+    document.querySelector("#text").addEventListener('input', () => {
+        alert.style.color = "red";
+        if (document.querySelector('#text').value.length < 5) {
+            alert.innerHTML = "Name should be greater than 5 digit"
+        }
+        else {
+            alert.innerHTML = ""
+        }
+    });
+
+    document.querySelector("#email").addEventListener('input', () => {
+        alert.style.color = "red";
+        alert.innerHTML = "YOu will Get a verification code on your email id"
+    });
+
+    document.querySelector("#re").addEventListener('input', () => {
+        if ((document.querySelector("#pw").value) != (document.querySelector("#re").value)) {
+            alert.style.color = "red";
+            alert.innerHTML = "your password didn't math"
+        }
+
+        if ((document.querySelector("#pw").value) == (document.querySelector("#re").value)) {
+            alert.style.color = "green";
+            alert.innerHTML = "Your password has been verified"
+        }
+    });
+
+    document.querySelector("#pw").addEventListener('input', () => {
+        if ((document.querySelector("#pw").value) != (document.querySelector("#re").value)) {
+            alert.style.color = "red";
+            alert.innerHTML = "your password didn't math"
+        }
+
+        if ((document.querySelector("#pw").value) == (document.querySelector("#re").value)) {
+            alert.style.color = "green";
+            alert.innerHTML = "Your password has been verified"
+        }
+    });
+
+    document.querySelector(".btn").addEventListener('click', () => {
+        debugger
+        if (document.querySelector('#text').value == "") { 
+            alert.style.color = "red";
+            alert.innerHTML = "Name should be greater than 5 digit" 
+        }
+
+        else if (document.querySelector('#email').value == "") { 
+            alert.style.color = "red";
+            alert.innerHTML = "Email is necessary" 
+        }
+
+        else if (document.querySelector('#pw').value == "") { 
+            alert.style.color = "red";
+            alert.innerHTML = "Enter your password" 
+        }
+
+        else if (document.querySelector('#re').value == "") { 
+            alert.style.color = "red";
+            alert.innerHTML = "Enter your password" 
+        }
+
+        else if (document.querySelector('#re').value != document.querySelector('#pw').value) { 
+            alert.style.color = "red";
+            alert.innerHTML = "your password didn't math" 
+        }
+
+        else { 
+            document.querySelector(".btn").style.display = "none";
+            document.querySelector("#btn").style.display = "block" 
+        }
+    });
+
+</script>
+
+</html>
